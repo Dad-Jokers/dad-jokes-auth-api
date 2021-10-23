@@ -6,7 +6,7 @@
   "scripts": {
     "init": "sequelize db:create",
     "start": "NODE_ENV=production node index.js",
-    "dev": "NODE_ENV=development node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
     "init:config": "sequelize init:config",
     "db:create": "sequelize db:create",
     "watch": "nodemon index.js",
@@ -26,13 +26,19 @@
   "homepage": "https://github.com/Dad-Jokers/dad-jokes-auth-api#readme",
   "dependencies": {
     "base-64": "^1.0.0",
-    "bcrypt": "^5.0.1",
+    "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.32.0",
     "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
     "morgan": "^1.10.0",
-    "pg": "^8.7.1",
-    "sequelize": "^6.7.0",
-    "sequelize-cli": "^6.2.0"
+    "pg": "^8.6.0",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0",
+    "sqlite3": "^5.0.2",
+    "supertest": "^6.1.6"
   }
 }
