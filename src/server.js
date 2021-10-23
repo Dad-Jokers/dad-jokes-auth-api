@@ -34,7 +34,7 @@ app.use(apiRoutes);
 
 
 // Catchalls
-app.use(notFound);
+app.use('*', notFound);
 app.use(errorHandler);
 
 // Start

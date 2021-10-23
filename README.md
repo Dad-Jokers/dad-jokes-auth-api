@@ -2,15 +2,18 @@
 
 ## Description
 
-Welcome to Dad Jokes! Here you can see all of our lovely dad jokes, and with access, you can be permitted to create, update, or even delete jokes! 
+Welcome to Dad Jokes! Here you can see all of our lovely dad jokes, and with access, you can be permitted to create, update, or even delete jokes!
 
+## Data Modeling
+
+![UML and WWRC](./img/UMLandWRRC.png)
+![Planning Routes](./img/whiteboard.png)
 
 ## Authors
 
 - Heather Bisgaard, Software Engineer
 - Charlie Fadness, Software Developer
 - Ayrat Gimranov, Full Stack Front End Developer
-
 
 ## Auth
 
@@ -94,10 +97,6 @@ Delete route for `/delete` `/api/v#/food/#`
 Using REST we can delete data into our server depending on the specific entry.
 ```
 
-## Whiteboard UML
-
-![Auth](img/lab-08-UML.png)
-
 ## Routes
 
 ```
@@ -121,12 +120,3 @@ npm i
 ```
 
 ## Usage
-
-```
-[Heroku Deployment](https://auth-api-401n19.herokuapp.com/)
-
-## Authors
-
-- Heather Bisgaard
-- Charlie Fadness
-- Ayrat Gimranov

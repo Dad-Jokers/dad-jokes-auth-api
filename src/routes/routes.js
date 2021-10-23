@@ -3,10 +3,22 @@
 const express = require('express');
 const authRouter = express.Router();
 
+const { users } = require('../models/index.js');
+
 // Auth
 const acl = require('../middleware/acl.js')
 const basicAuth = require('../middleware/basic.js');
 const bearerAuth = require('../middleware/bearer.js');
+
+authRouter.get('/', (req, res) => {
+  res.status(200).send("Welcome to Dad Jokes!")
+})
+
+authRouter.get('/listall', async (req, res, next) => {
+  const allUsers = await users.findAll();
+  const list = allUsers.map(user => user);
+  res.status(200).json(list);
+});
 
 authRouter.post('/register', async (req, res, next) => {
   try {

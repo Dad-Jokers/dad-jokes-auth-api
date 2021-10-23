@@ -4,6 +4,8 @@
 const express = require('express');
 const authRouter = express.Router();
 
+const forbidden = require('../error-handlers/403.js');
+
 // Auth
 const basicAuth = require('../middleware/basic.js');
 const bearerAuth = require('../middleware/bearer.js');
@@ -19,13 +21,14 @@ authRouter.param('model', (req, res, next) => {
     req.model = dataModules[modelName];
     next();
   } else {
-    next('Invalid Model');
+    // forbidden
+    next('What do you call a fake noodle? An impasta');
   }
 });
 
-authRouter.get('/:model', acl('read'), handleGetAll); // get jokes without loggin in
-authRouter.get('/:model', basicAuth, acl('read'), handleGetAllJokes); // get jokes with hooks while logged in
-authRouter.get('/:model/:id', basicAuth, acl('read'), handleGetOne);
+authRouter.get('/:model', handleGetAll); // get jokes without loggin in
+authRouter.get('/:model/all', bearerAuth, acl('read'), handleGetAllJokes); // get jokes with hooks while logged in
+authRouter.get('/:model/:id', bearerAuth, acl('read'), handleGetOne);
 authRouter.post('/:model', bearerAuth, acl('update'), handleCreate);
 authRouter.put('/:model/:id', bearerAuth, acl('update'), handleUpdate);
 authRouter.delete('/:model/:id', bearerAuth, acl('delete'), handleDelete);
@@ -33,7 +36,15 @@ authRouter.delete('/:model/:id', bearerAuth, acl('delete'), handleDelete);
 async function handleGetAll(req, res) {
   try {
     let jokes = await req.model.read();
-    res.status(200).json(jokes);
+    let jokesArray = jokes.map(element => {
+      // console.log('Name',element.dataValues.name)
+      // console.log('Set Up',element.dataValues.setup)
+      return { name: element.dataValues.name,
+       setup: element.dataValues.setup}
+    })
+    console.log('Jokes Array: ----',jokesArray)
+    // console.log('jokes', jokes[1].dataValues)
+    res.status(200).json(jokesArray);
   } catch (e) {
     res.status(404).send('Could not get all the jokes');
   }
@@ -42,7 +53,14 @@ async function handleGetAll(req, res) {
 async function handleGetAllJokes(req, res) {
   try {
     let jokes = await req.model.read();
-    res.status(200).json(jokes);
+    let jokesArray = jokes.map(element => {
+      // console.log('Name',element.dataValues.name)
+      // console.log('Set Up',element.dataValues.setup)
+      return { name: element.dataValues.name,
+       setup: element.dataValues.setup,
+      punchline: element.dataValues.punchline}
+    })
+    res.status(200).json(jokesArray);
   } catch(e) {
     res.status(404).send('Could not get all the jokes with hooks')
   }
@@ -101,7 +119,14 @@ User1 -> { "username":"Krissy", "password": "BestGurl", "role": "admin"}
   - Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJpbGx5IiwiaWF0IjoxNjM0NDMwNjUyfQ.ODjmQyIuDBO0K3m7HXw3U4HDP2wpZ_a6I2Pv74kculs
 
   { "username":"cakeViewer", "password": "cake", "role": "user" }
-    - Basic
+    - Basic Y2FrZVZpZXdlcjpjYWtl
     - Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha2VWaWV3ZXIiLCJpYXQiOjE2MzQ3ODY3NTh9.yQwkPGu5d_ivatcWACGsedIgTVnA1FOPmPLLsfXQKR8
 
+  { "username":"cakeViewer3", "password": "cake", "role": "editor" }
+  - Basic Y2FrZVZpZXdlcjM6Y2FrZQ==
+  - Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha2VWaWV3ZXIzIiwiaWF0IjoxNjM1MDI0NzI0fQ.kLsCOqDznW4YFoSCKYnaNWVtvhQSlKD0TPie3btdj_g
+
+{ "username":"cakeViewer5", "password": "cake", "role": "editor" }
+
+  - Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha2VWaWV3ZXI1IiwiaWF0IjoxNjM1MDI4Mjk2fQ.suPcsn3SpKS2IJK64C0ZNrqIwQFo23mH690zHZglMzM
 */
