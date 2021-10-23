@@ -8,7 +8,7 @@ const jokeModel = require('./jokes.js');
 const Collection = require('./collections.js');
 
 const DATABASE_URL = process.env.DATABASE_URL === 'test' 
-? 'sqlite"memory' : process.env.DATABASE_URL;
+? 'sqlite"memory' : 'postgres://localhost:5432/finalAuth';
 
 const sequelize = new Sequelize(DATABASE_URL);
 

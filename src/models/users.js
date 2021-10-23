@@ -9,13 +9,26 @@ const SECRET = process.env.SECRET
 
 const userModel = (sequelize, DataTypes) => {
   const model = sequelize.define('User', {
-    username: { type: DataTypes.STRING, allowNull: false, unique: true },
-    password: { type: DataTypes.STRING, allowNull: false, },
-    role: { type: DataTypes.ENUM('user', 'editor', 'admin'), required: true, defaultValue: 'user' },
+    username: { 
+      type: DataTypes.STRING, 
+      allowNull: false, 
+      unique: true 
+    },
+    password: { 
+      type: DataTypes.STRING, 
+      allowNull: false, 
+    },
+    role: { 
+      type: DataTypes.ENUM('user', 'editor', 'admin'), 
+      required: true, 
+      defaultValue: 'user' 
+    },
     token: {
       type: DataTypes.VIRTUAL,
       get() {
-        return jwt.sign({ username: this.username }, SECRET );
+        return jwt.sign({ 
+          username: this.username 
+        }, SECRET );
       }     
     },
     capabilities: {

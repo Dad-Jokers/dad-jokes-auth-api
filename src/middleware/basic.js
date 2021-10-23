@@ -5,7 +5,7 @@ const { users } = require('../models/index.js')
 
 module.exports = async (req, res, next) => {
 
-  if (!req.headers.authorization) { next('Invalid login') }
+  if (!req.headers.authorization) { next('What do you call someone with no body and no nose? Nobody knows.') }
 
   let basic = req.headers.authorization.split(' ').pop();
   let [username, pass] = base64.decode(basic).split(':');
@@ -15,7 +15,7 @@ module.exports = async (req, res, next) => {
     req.user = result;
     next();
   } catch (e) {
-    res.status(403).send('Invalid Login');
+    res.status(403).send('What’s Forrest Gump’s password? 1forrest1');
   }
 
 }
