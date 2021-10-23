@@ -125,4 +125,8 @@ User1 -> { "username":"Krissy", "password": "BestGurl", "role": "admin"}
   { "username":"cakeViewer3", "password": "cake", "role": "editor" }
   - Basic Y2FrZVZpZXdlcjM6Y2FrZQ==
   - Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha2VWaWV3ZXIzIiwiaWF0IjoxNjM1MDI0NzI0fQ.kLsCOqDznW4YFoSCKYnaNWVtvhQSlKD0TPie3btdj_g
+
+{ "username":"cakeViewer5", "password": "cake", "role": "editor" }
+
+  - Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha2VWaWV3ZXI1IiwiaWF0IjoxNjM1MDI4Mjk2fQ.suPcsn3SpKS2IJK64C0ZNrqIwQFo23mH690zHZglMzM
 */
