@@ -1,0 +1,38 @@
+{
+  "name": "dad-jokes-auth-api",
+  "version": "1.0.0",
+  "description": "Codefellows lab9 group project",
+  "main": "index.js",
+  "scripts": {
+    "init": "sequelize db:create",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development node index.js",
+    "init:config": "sequelize init:config",
+    "db:create": "sequelize db:create",
+    "watch": "nodemon index.js",
+    "test-watch": "NODE_ENV=test jest --watchAll --verbose --coverage",
+    "test": "NODE_ENV=test jest --verbose --coverage",
+    "lint": "eslint **/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dad-Jokers/dad-jokes-auth-api.git"
+  },
+  "author": "Heather Bisgaard, Charlie Fadness, Ayrat Gimranov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dad-Jokers/dad-jokes-auth-api/issues"
+  },
+  "homepage": "https://github.com/Dad-Jokers/dad-jokes-auth-api#readme",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.1",
+    "sequelize": "^6.7.0",
+    "sequelize-cli": "^6.2.0"
+  }
+}
