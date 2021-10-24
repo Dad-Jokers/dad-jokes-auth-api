@@ -4,6 +4,10 @@
 
 Welcome to Dad Jokes! Here you can see all of our lovely dad jokes, and with access, you can be permitted to create, update, or even delete jokes!
 
+## Deployed Link
+
+<https://dad-jokes-auth-api.herokuapp.com/>
+
 ## Data Modeling
 
 ![UML and WWRC](./img/UMLandWRRC.png)
@@ -120,3 +124,4 @@ npm i
 ```
 
 ## Usage
+
