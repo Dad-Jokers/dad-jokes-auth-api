@@ -127,6 +127,27 @@ User1 -> { "username":"Krissy", "password": "BestGurl", "role": "admin"}
   - Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha2VWaWV3ZXIzIiwiaWF0IjoxNjM1MDI0NzI0fQ.kLsCOqDznW4YFoSCKYnaNWVtvhQSlKD0TPie3btdj_g
 
 { "username":"cakeViewer5", "password": "cake", "role": "editor" }
-
-  - Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha2VWaWV3ZXI1IiwiaWF0IjoxNjM1MDI4Mjk2fQ.suPcsn3SpKS2IJK64C0ZNrqIwQFo23mH690zHZglMzM
+  - Basic Y2FrZVZpZXdlcjU6Y2FrZQo=
+  - Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha2VWaWV3ZXI1IiwiaWF0IjoxNjM1MjE0MTA4fQ.SGAf6J-EZozfuzXd-c0BzZggO-N8v_iSmuZRIFfkOtU
 */
+
+// {
+// 	"name": "Tesla",
+// 	"setup": "Why do Teslas cost so much?",
+// 	"punchline": "Because they charge a lot."
+// }
+// {
+// 	"name": "Fishy Money",
+//   "setup": "Where do fishes keep their money?",
+//   "punchline": "A river bank"
+// }
+// {
+// 	"name": "Witch",
+// 	"setup": "What do you call 2 witches that live together?",
+//   "punchline": "Broommates"
+// }
+// {
+// 	"name": "Corn",
+//   "setup": "What did Baby Corn say to Mama Corn?",
+// 	"punchline": "Where’s Pop Corn?"
+// }
