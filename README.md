@@ -2,8 +2,7 @@
 
 ## Description
 
-Welcome to Dad Jokes! Here you can see all of our lovely dad jokes, and with access, you can be permitted to create, update, or even delete jokes! 
-
+Welcome to Dad Jokes! Here you can see all of our lovely dad jokes, and with access, you can be permitted to create, update, or even delete jokes!
 
 ## Authors
 
@@ -11,6 +10,19 @@ Welcome to Dad Jokes! Here you can see all of our lovely dad jokes, and with acc
 - Charlie Fadness, Software Developer
 - Ayrat Gimranov, Full Stack Front End Developer
 
+## Deployed Link
+
+[Heroku Link](https://dad-jokes-auth-api.herokuapp.com/)
+
+## Data Modeling
+
+### UML and WRRC
+
+![UML and WWRC](./img/UMLandWRRC.png)  
+
+### White Board
+
+![Planning Routes](./img/whiteboard.png)
 
 ## Auth
 
@@ -31,7 +43,7 @@ Auth is hashing out password along with our username that creates a hashed passw
 `"sqlite3": "^5.0.2"`  
 `"supertest": "^6.1.3"`  
 
-## CRUD / REST
+## CRUD
 
 POST route for `/register`
 
@@ -60,43 +72,34 @@ POST route for `/secret`
 Using middleware, we authicate your information to view specialized secret documents
 ```
 
-## Restful API
+## RESTful API
 
-We have two versions.
-
-- `/api/v1/food` is REST without middleware auth
-  - This is our test routes. To make sure everything works as we want.
-- `/api/v2/food` is REST with middleware auth
+- `/joke` is REST with middleware auth
   - Here we have roles set, the level of role will depend on how many things you can complete with a RESTful API.
 
-
-Get route for `/get` `/api/v#/food`
+Get route for `/get` `/joke`
 
 ```
-Using REST we grab all our data, if you add "/api/v#/food/#", you can view a specific entry 
+Using REST we grab all our data, if you add "/joke/#", you can view a specific entry 
 ```
 
-Post route for `/post` `/api/v#/food`
+Post route for `/post` `/joke`
 
 ```
 Using REST we can post data into our server. Models using "name", "filling", and "frosting"
 ```
 
-Update route for `/put` `/api/v#/food/#`
+Update route for `/put` `/joke/#`
 
 ```
 Using REST we can update data into our server depending on the specific entry. Models using "name", "filling", and "frosting" to update the entry
 ```
 
-Delete route for `/delete` `/api/v#/food/#`
+Delete route for `/delete` `/joke/#`
 
 ```
 Using REST we can delete data into our server depending on the specific entry.
 ```
-
-## Whiteboard UML
-
-![Auth](img/lab-08-UML.png)
 
 ## Routes
 
@@ -109,9 +112,15 @@ Using REST we can delete data into our server depending on the specific entry.
 
 /secret
 
-/api/v1/food
+/joke
 
-/api/v1/food
+/joke/#
+```
+
+## Testing
+
+```
+While creating tests, we wanted to focus on routes, RESTful API, and making sure they all worked with Insomnia or Postman.
 ```
 
 ## Install
@@ -123,10 +132,10 @@ npm i
 ## Usage
 
 ```
-[Heroku Deployment](https://auth-api-401n19.herokuapp.com/)
+npm run dev
+```
 
-## Authors
+## Other
 
-- Heather Bisgaard
-- Charlie Fadness
-- Ayrat Gimranov
+Create a `.env` file following our sample env. 
+  Add in DATABASE_URL, SECRET, and PORT
